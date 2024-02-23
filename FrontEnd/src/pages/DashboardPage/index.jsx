@@ -4,6 +4,8 @@ import { ContactList } from '../../components/ContactList';
 import { EditUserModal } from './../../components/Modal/EditUserModal/index';
 import { ImPencil } from "react-icons/im"
 import styles from "./style.module.scss"
+import logoImg from "../../../assets/agenda.png"
+
 
 export const DashboardPage = () => {
 
@@ -24,10 +26,10 @@ export const DashboardPage = () => {
             <header className="container">
                 <div className={styles.divHeader}>
                     <div className={styles.divLogo}>
-                        <img src="/assets/agenda.png" alt="logo agenda" />
+                        <img className={styles.logoImage} src={logoImg} alt="logo agenda" />
                         <h1 className={styles.logoText}> My Virtual Contacts</h1>
                     </div>
-                    <button onClick={logout}>Sair</button>
+                    <button className={styles.headerButton} onClick={logout}>Sair</button>
                 </div>
             </header>
             <div className={styles.divBorder}>

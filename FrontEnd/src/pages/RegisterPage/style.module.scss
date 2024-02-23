@@ -7,8 +7,14 @@
   gap: 15px;
   height: auto;
 
-  img {
+  .logoImage {
     width: 30px;
+
+    &[alt="logo agenda"] {
+      color: var(--color-white);
+      width: 30px;
+      font-size: 10px;
+    }
   }
 }
 
@@ -79,9 +85,10 @@ a {
       .changePasswordButton {
         position: absolute;
         color: var(--color-gray-1);
-        right: 15px;
-        top: 60px;
+        right: 0px;
+        top: 55px;
         cursor: pointer;
+        background-color: transparent;
       }
     }
   }

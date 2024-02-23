@@ -7,6 +7,8 @@ import { registerFormSchema } from "../../components/Schemas/registerFormSchema.
 import { UserContext } from "../../providers/userProvider.jsx"
 import styles from "./style.module.scss"
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
+import logoImg from "../../../assets/agenda.png"
+
 
 export const RegisterPage = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -27,7 +29,7 @@ export const RegisterPage = () => {
     return (
         <>
             <div className={`${styles.divLogo} container`}>
-                <img src="/assets/agenda.png" alt="logo agenda" />
+                <img className={styles.logoImage} src={logoImg} alt="logo agenda" />
                 <h1 className={styles.logoText}>My Virtual Contacts</h1>
                 <div>
                     <Link className="headlineBold" to="/">Voltar</Link>

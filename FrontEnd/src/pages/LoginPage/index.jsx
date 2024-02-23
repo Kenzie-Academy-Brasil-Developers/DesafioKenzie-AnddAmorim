@@ -7,6 +7,7 @@ import { UserContext } from './../../providers/userProvider.jsx';
 import { loginFormSchema } from "../../components/Schemas/loginFormSchema.js"
 import { Link } from "react-router-dom"
 import styles from "./style.module.scss"
+import logoImg from "../../../assets/agenda.png"
 
 export const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -24,7 +25,7 @@ export const LoginPage = () => {
     return (
         <>
             <div className={`${styles.divLogo} container`}>
-                <img src="/assets/agenda.png" alt="logo agenda" />
+                <img className={styles.logoImage} src={logoImg} alt="logo agenda" />
                 <h1 className={styles.logoText}>My Virtual Contacts</h1>
             </div>
             <div className={`${styles.divContainer} container`}>
