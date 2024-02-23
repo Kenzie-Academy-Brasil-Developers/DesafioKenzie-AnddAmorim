@@ -11,5 +11,5 @@ export class Contact {
   constructor(){
     this.id = randomUUID()
     this.registerDate = new Date()
-  }
+  };
 }
