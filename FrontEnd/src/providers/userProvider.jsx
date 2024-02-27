@@ -30,7 +30,7 @@ export const UserProvider = ({ children }) => {
     }
     if (token) {
       getUser()
-    }else{
+    } else {
       navigate("/")
     }
   }, [])
@@ -70,6 +70,22 @@ export const UserProvider = ({ children }) => {
     }
   }
 
+  const deleteUser = async (userId, formData) => {
+    try {
+      const token = localStorage.getItem("@TOKEN")
+      const { data } = await api.delete(`/users/${userId}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+      setUser(data)
+    } catch (error) {
+      console.log(error.response.data)
+    }finally {
+      navigate("/")
+    }
+  }
+
   const submit = async (formData) => {
     try {
       const response = await api.post("/login", formData)
@@ -91,12 +107,10 @@ export const UserProvider = ({ children }) => {
     } catch (error) {
       console.error("Error during login:", error);
       toast.error("Ops, algo está errado. Por favor, tente novamente o login.");
-    }finally{
+    } finally {
       navigate("/dashboard")
     }
   };
-
-
 
   const logout = () => {
     localStorage.removeItem("@TOKEN")
@@ -105,7 +119,7 @@ export const UserProvider = ({ children }) => {
   }
 
   return (
-    <UserContext.Provider value={{ user, setUser, userRegister, editUser, submit, logout, contacts, setContacts }}>
+    <UserContext.Provider value={{ user, setUser, userRegister, editUser, deleteUser, submit, logout, contacts, setContacts }}>
       {children}
     </UserContext.Provider>
   )
